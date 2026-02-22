@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1-css导入方式</title>
+</head>
+
+<style>
+    h1 {
+        color: aqua;
+    }
+</style>
+
+<link rel="stylesheet" href="./外部样式例.css">
+
+<body>
+    <div>css导入有三种方法: <br>
+        内联样式<i>(inline styles)</i>, <br>
+        内部样式<i>(internal ~)</i>, <br>
+        外部样式<i>(external ~)</i>
+    </div>
+    
+    <p style="color:red; font-size: large;">内联样式即写在某个标签的style属性内</p>
+    
+    <h1>
+        内部样式即把css code写在html文件中的style标签(与body同级)内
+    </h1>
+    
+    <h2>
+        外部样式即写在外部文件中,通过rel属性为stylesheet的link标签引入
+        <br>href中写路径
+    </h2>
+
+    <div>
+        优先级为内联>内部>外部
+    </div>
+
+</body>
+</html>
