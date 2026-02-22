@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_PRAC1.2</title>
+</head>
+<body>
+    
+    <div>div(division)标签是最常用的块标签，无语义，仅方便组织内容(方便css和js操作)</div>
+    <div>如果要创建一个带xx类的div，只需输入 .xx</div>
+    <div class="xx"></div>
+
+    <div>创建带id的div, 输入 #id</div>
+    <div id="nav"></div>
+<hr>
+    <div class="content">
+        <h1>easy example</h1>
+        <p>see details in codes</p>
+        
+    </div>
+<hr>
+    <span>span是行内标签，无语义，功能类似div，就是把一部分元素框起来便于操作</span>
+<hr>
+
+    <div>表单form的创建一般配合input等标签，下面先介绍input</div>
+<br>
+    <form action="#">
+        input的type属性决定输入框的样式,常用如下：<br>
+        text:（输入值为明文）
+        <input type="text"> 
+    <br>
+        password:（输入的会被*隐藏）
+        <input type="password" name="" id="">
+    <br>
+        radio:（单选框）
+        <input type="radio" name="" id="">
+    <br>
+        checkbox:（多选框）
+        <input type="checkbox" name="" id="">
+    <br>
+        submit:（提交按钮）
+        <input type="submit" name="" id="">
+    <hr>
+    <br>
+        虽然直接在input前输入文字即可有xx：输入框的形式，但用label标签来整更好
+        <br><i>label标签的for属性可以通过id绑定输入框</i>
+        
+        <br><br>placeholder属性制定未输入时显示的文本，与value属性的不同在于后者在输入时仍保留
+    <br><br>
+        <label for="example1">示例1：</label><input type="text" id="example1" placeholder="请输入文本">
+        <br>
+        <label for="example2">示例2：</label><input type="text" id="example2" value="请输入文本">
+    <br><br>
+    <hr>
+    <br>
+        下面介绍单选框做法：
+        <br>即多个input拥有相同name属性<br>
+        <label for="">性别：</label>
+        <input type="radio" name="gender" id="">男
+        <input type="radio" name="gender" id="">女
+        <input type="radio" name="gender" id="">其他
+    <br><br>
+        下面介绍多选框做法：
+        <br>也是有相同name属性即可，但是type是勾选框<br>
+        <label for="">爱好：</label>
+        <input type="checkbox" name="hobby" id="">sing
+        <input type="checkbox" name="hobby" id="">dance
+        <input type="checkbox" name="hobby" id="">rap
+        <input type="checkbox" name="hobby" id="">basketball
+
+    <br><br>
+    <hr>
+    <br>
+        至于submit属性：用于提交表单，即把上面那些input获得的值提交到某个地方
+        <br>提交到哪呢？取决于form的action属性，值为url，需要后端给我们提供
+        <br>填#则表示不跳转，仅占位
+        <br><i>“提交”二字可以通过value改,但不能用placeholder</i>
+        <br><input type="submit" value="上传">
+        <br><input type="submit" placeholder="上传">
+        
+
+
+
+
+
+
+
+
+
+    </form>
+
+<!--
+    <form action="">
+        <label for="">用户名</label>
+        <input type="text">
+
+
+
+    </form>
+-->
+
+</body>
+</html>
