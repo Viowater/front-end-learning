@@ -18,6 +18,30 @@
     * {
          font-family: "kaiti"; /*楷体,可以直接拼音 */
     }
+    /* 子元素选择器 */
+    .father>#son1{
+        color: coral;
+    }
+    .father>.son2{
+        color:yellowgreen;
+    }
+    /* 后代选择器 */
+    .father .grandson{
+        color:violet;
+    }
+    /* 相邻元素选择器 */
+    h4 + p {
+        background-color: aqua;
+    }
+    /* 伪类选择器 */
+    #element:hover {
+        background-color: blanchedalmond;
+    }
+    /* 伪元素选择器 */
+    #fake::after{
+        content: "这段就是用::after附加的文字";
+        font-size: 10px;
+    }
 </style>
 <body>
     <div>
@@ -28,15 +52,48 @@
         <br>通用选择器
         <br>子元素选择器
         <br>后代选择器(包含选择器)
-        <br>并集选择器(兄弟选择器)
+        <br>相邻选择器(兄弟选择器)
         <br>伪类选择器
     </div>
-    <hr>
-    
-    <div>元素选择器:即直接选择标签名</div>
-    <div class="aaa">类选择器,给标签添加class属性,通过class的值选择, <b>前面要加个点.</b></div>
-    <div id="bbb">id选择器,类似上者,<b>前面加#</b></div>
-    <div>通用选择器, 一个星号*</div>
+<hr>
+    <div>
+        
+        <div>元素选择器:即直接选择标签名</div>
+        <div class="aaa">类选择器,给标签添加class属性,通过class的值选择, <b>前面要加个点.</b></div>
+        <div id="bbb">id选择器,类似上者,<b>前面加#</b></div>
+        <div>还有一个通用选择器, 即一个星号*</div>    
+        <br>
+        <div><b>优先级为id > class > 标签 > 通用</b></div>
+    </div>
+<hr>
+    <div class="father">
+        <p id="son1">子元素选择器就是选择某一元素的子元素</p>
+        <p class="son2">语法即父选择器 > 子元素选择器, 父与子都可以是以上三者任一</p>
+        <p>后代选择器相当于范围更宽的子元素选择器,后者只能向下选一级,前者只要是他的下级都会被影响<i>(后代的概念大于子代)</i>; <b>子选择器优先级较高</b></p>
+        <div>
+            <p class="grandson">语法为 父选择器 空格 子选择器</p>
+        </div>
+    </div>
+<hr>
+    <h4>相邻元素选择器,选择某元素的下一个紧邻元素, 语法为 ... + ...</h4>
+    <p>示例</p>
+<hr>
+    <p id="element">
+        伪类选择器用于在用户交互时改变样式,比如本段即为"hover",悬停时改变样式
+        语法即 ... : 伪类 
+        <br>伪类有很多,这里例举几个: 
+        <br> :first-child 第一个子元素
+        <br> :nth-child()第n个元素
+    </p>
+    <p id="fake">
+        伪元素选择器可以对被选择元素的特定部分修改
+        <br> 语法即 选择器 ::伪元素
+        <br>伪元素同样有很多, 常用 ::after ::before , 即被选中元素的前面后面
+    </p>
+
+
+
+
     
 </body>
 </html>

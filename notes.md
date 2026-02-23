@@ -14,7 +14,7 @@
 
     (4)
     html文件中输入 ! 然后tab即可自动键入通用模块，包含
-
+```html
         <!DOCTYPE html>     声明本文件时html文件
         <html lang="en">    根元素，包含页面所有内容
         <head>              “头” 一些不想向用户显示的内容
@@ -26,7 +26,7 @@
 
         </body>
         </html>
-
+```
 
     (5)
     注释写法： <!--注释内容-->
@@ -58,6 +58,10 @@
     只能包含行内元素
     常见：span a strong em img br input 
  
+## 1.4 快捷键
+    .xx 创建类为xx的div; #yy创建id为yy的div
+    标签.xx 创建类为xx的div; 标签#yy同理
+---
 
 # 2.css
 ## 2.1 概述
