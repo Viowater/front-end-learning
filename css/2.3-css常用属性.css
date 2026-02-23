@@ -1,0 +1,31 @@
+    img {
+        width: 100px;
+        height: auto;
+    }
+    .box_model{
+        width: 400px;
+    }
+    .box{
+        width:90% ;
+        height: 10rpx;
+        background-color:cornsilk ;
+        display: inline-block;
+        border: 3px black solid;
+        /* padding: 10px; */
+        
+        margin: 10px;
+        
+    }
+    .box>.border_example{
+        color:cadetblue;
+        border-color: red orange rgb(166, 166, 79) green;
+        border-style: solid dotted dashed double;
+        border-width: 10px 8px 4px 2px;
+
+    }
+    #single1 {
+        border-left: 5px solid;
+        border-left-color:green; 
+        
+    }
+    
