@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4-浮动&定位</title>
+    <style>
+        .gang{
+            background-color: aqua;
+        }
+        .floating{
+            background-color: yellow;
+            /* height: 200px; */
+            border: 3px solid brown;
+        }
+        .float-l{
+            background-color: rgb(147, 171, 193);
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        .float-r{
+            background-color: rgb(147, 171, 193);
+            width: 100px;
+            height: 100px;
+            float: right;
+        }
+        .explain{
+            background-color: bisque;
+            border: 3px dotted red;
+        }
+        .floating-2{
+            background-color: yellow;
+            border: 3px solid brown;
+            /* overflow: hidden; */
+        }
+        .floating-2::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .located{
+            background-color: chocolate;
+        }
+
+
+        .box1{
+            background-color: wheat;
+            height: 300px;
+            margin-bottom: 50px;
+        }
+        .s1{
+            background-color: rgb(179, 155, 202);
+            height: 100px;
+            width: 200px;
+        }
+        .relative{
+            position: relative;
+            left: 220px;/* 给多少就是相对left偏移多少,就是离左边多少 */
+            top: 25px;
+        }
+
+
+        .box2{
+            background-color: wheat;
+            height: 300px;
+            margin-bottom: 50px;
+            position: relative;
+        }        
+        .absolute{
+            position: absolute;
+            left: 300px;
+            top: 40px;
+            
+            height: 100px;
+            width: 200px;
+            
+        }
+        #absolute-test{
+            background-color: rgb(149, 149, 202);
+            margin-left: 180px;
+            height: 100px;
+            width: 200px;
+        }
+
+        #fixed{
+            background-color: rgb(125, 201, 166);
+            width: 70px;
+
+            position: fixed;
+            right: 0;
+            top: 200px;
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="gang">
+        <h1>传统网页布局方式:</h1>
+        <h2>标准流(普通流,文档流):按书写顺序依次排列</h2>
+        <h2>浮动:可以根据开发者意愿漂浮到网页任意方向,灵活但不易控制</h2>
+        <h2>定位:顾名思义,可以精准控制</h2>
+        <h2>flexbox & gird (自适应布局):可以适应多端</h2>
+    </div>
+
+    <div class="floating">
+        <h2>浮动(float)详解</h2>
+        <p style="padding-left: 5%;">
+            语法:添加<b>float</b>属性即可
+            <br>给值left, 则该元素必须在所在块容器的左侧,其他同理
+            <br>注:浮动是相对于父元素浮动,只在父元素内部移动; 浮动属性会使该ele拥有行内快类似属性
+            <br>例:
+        </p>
+        <div class="float-l">
+            left
+        </div>
+        
+        <div class="float-r">
+            right
+        </div>
+
+
+    </div>
+    
+    <p class="explain">
+        注意到:两个浮动元素背后没有黄色背景, 并且这段话(与两个浮动的父元素同级)夹在二者之间
+        <br>这是因为发生了"坍塌", 浮动元素浮起来了, 支撑不住父元素. 这时候就需要"清除浮动
+        <br><b>方法一: </b>可通过添加overflow:hidden 
+        <br><b>方法二: </b>对父元素使用伪元素选择器
+        <br><q>
+            .father::after{<br>
+                content:""; <br>
+                display: table; <br>
+                clear: both;<br> 
+            }
+            <br>这里的 `content: ""` 创建一个空的伪元素，`display: table` 使其成为一个块级元素，而 `clear: both` 则清除左、右两边的浮动。
+        </q>
+
+    </p>
+
+    <div class="floating-2">
+
+        <div class="float-l">
+            left
+        </div>
+        <div class="float-r">
+            right
+        </div>
+        清除后效果likethis, 然后这两个浮动不管怎么样都会在左右侧
+        <div class="float-l">加新的也是飘到左边, 而非按顺序到下一行</div>
+        <div class="float-l">11</div>
+        <div class="float-l">11</div>
+        <div class="float-l">11</div>
+        <div class="float-l">11</div>
+        <div class="float-l">11</div>
+        <div class="float-l">11</div>
+        <div class="float-l">挤不下了就换行, 像行内块一样</div>
+
+
+    </div>
+
+    <br><hr><br>
+
+    <div class="located">
+        <h2>定位(position)详解</h2>
+        <p><b>定位方式:</b></p>
+        <p style="padding-left: 5%;">
+            
+                <b>相对(relative)定位</b>:相对于ele在文档流中的正常位置
+            <br><b>绝对(absolute)定位</b>:相对于最近的已定位祖先元素,不占据文档流
+            <br><b>固定(fixed)定位</b>:相对于浏览器窗口进行定位, 不占据文档流, 与屏幕相对静止(不随滚动而移动)
+        </p>
+    </div>
+
+    <div class="box1">
+        <div class="s1"></div>
+        <div class="s1 relative">
+            相对定位即相对left, right, top, bottom偏移
+            <br>但是<b>相当于灵魂出窍</b>,实体还在原地,故其他块不会被影响
+        </div>
+        <div class="s1"></div>
+    </div>
+
+    
+    <div class="box2">
+        <div class="s1"></div>
+
+        <div class="s1 absolute" style="background-color: yellowgreen;">
+            绝对定位:相对于最近的position不为默认值static的祖先元素(这里为box2), 还是根据left..偏移
+            <br>剔除出常规文档流,页面布局不会给它留任何, 相当于不在同一图层了,所以会和淡蓝重叠
+        </div>
+
+        <div class="s1" id="absolute-test">
+            
+        </div>
+        <div class="s1" ></div>
+    </div>
+    
+    
+
+    <div class="s1" id="fixed">
+        我就是绝对定位,很适合导航栏
+    </div>
+
+</body>
+</html>
