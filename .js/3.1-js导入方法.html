@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1-js导入方法</title>
+    <script>
+        console.log("内联head");
+    </script>
+    <script src="./3.1.js"></script>
+    <style>
+        .inputway{
+            background-color: antiquewhite;
+        }
+        .variable{
+            background-color: rgb(200, 239, 239);
+        }
+        .datetype{
+            background-color: rgb(200, 239, 239);
+        }
+
+        .suojin{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        console.log("内联body");
+        alert("Hello World!")
+    </script>
+
+    <div class="inputway">
+        <h1>导入方法</h1>
+        <b>一(内联样式):</b>
+            在head或body标签内使用 script标签, 即可在其中使用js
+        <br><b>二(外联)</b>
+            给script标签加src属性, 写路径即可
+        <br><b>注:</b> 顺序按从上至下
+    </div>
+
+    <div class="variable">
+        <h1>一.变量</h1>
+
+        <div>
+        <b>1.定义变量的关键字: </b>
+        <p class="suojin">
+            <b>var(variable)</b> :函数作用域(如果定义在函数外就是全局), 可选择初始化
+            <br><b>let</b> :块级作用域, 可选择初始化
+            <br><b>const</b>:定义常量
+        </p>
+        </div>
+
+        <div>
+        <b>2.var的特性:</b>
+        <p class="suojin">
+            <b>变量提升:</b>var声明的变量, 声明会被提升到所在作用域的顶部, 但初始化赋值不会提升
+            <pre>
+                console.log(a);     //输出undefined, 不报错
+                var a =5;
+                console.log(a);     //输出5
+            </pre>
+            <p class="suojin">
+                <b>穿透块级作用域:</b>
+                var不识别{}块(如if, for的代码块), 会直接穿透这些块, 作用到其所在的整个函数或全局
+            </p>
+        </p>
+        </div>
+
+        <div>
+            <b>3.let</b>
+            <p class="suojin">
+                作用域为函数或块级(可以被限制在for等语句内), 无提升现象(正常的必须先声明才能用)
+                <br><b>let声明的变量不能被其他任何声明重复声明</b>
+            </p>
+        </div>
+
+        <div>
+            <b>4.const</b>
+            <p class="suojin">
+                定义常量,无需多言. 
+                <br>如果常量是一个对象, 他的属性可以被修改
+            </p>
+        </div>
+    </div>
+
+    <div class="datetype">
+        <h1>二.数据类型</h1>
+        <div>
+            <p class="suojin">
+                <b>1.undefined:</b> 未定义, 声明但未赋值者
+                <br><b>2.null:</b> 空值, 明确表明值为空 <code>let a= null;</code>
+                <b>其他数据类型基本同cpp</b>
+            </p>
+        </div>
+    </div>
+
+
+</body>
+</html>
